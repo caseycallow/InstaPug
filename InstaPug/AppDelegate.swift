@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // configure root VC
         window = UIWindow(frame: UIScreen.main.bounds)
         if let window = window {
-            let vc = PugViewController()
+            let vc = MainFeedViewController()
             window.rootViewController = vc
             window.makeKeyAndVisible()
         }
