@@ -8,8 +8,9 @@
 
 import Foundation
 
-struct Post: Codable {
+struct Post {
     public let imageURL: URL
+    public var isLiked: Bool = false
     public var totalLikes: Int {
         let hash = abs(imageURL.absoluteURL.hashValue % 10)
         return hash

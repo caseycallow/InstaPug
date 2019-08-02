@@ -44,7 +44,7 @@ class PostViewController: UIViewController {
                 if let response = try? response.decode(to: Posts.self) {
                     let posts = response.body
                     for url in posts.results {
-                        let post = Post(imageURL: url)
+                        let post = Post(imageURL: url, isLiked: false)
                         self.posts.append(post)
                         self.refreshCells()
                     }

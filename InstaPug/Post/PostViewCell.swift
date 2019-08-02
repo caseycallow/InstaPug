@@ -10,6 +10,9 @@ import UIKit
 
 class PostViewCell: UICollectionViewCell {
     
+    let likeButton = LikeButton()
+    let likeLabel = LikeLabel()
+
     public func configure(_ post: Post) {
         imageView.load(url: post.imageURL)
         setLabel(likes: post.totalLikes)
@@ -35,28 +38,10 @@ class PostViewCell: UICollectionViewCell {
         likeLabel.text = "\(likes) like\(hasOneLike ? "" : "s")"
     }
     
-    // MARK: Components
-    
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         return imageView
-    }()
-    
-    lazy var likeButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "heart"), for: .normal)
-        button.setImage(UIImage(named: "heartFilled"), for: [.highlighted, .selected])
-        button.imageView?.contentMode = .scaleAspectFit
-        button.withHeight(24)
-        return button
-    }()
-    
-    lazy var likeLabel: UILabel = {
-        let label = UILabel()
-        label.text = "0 Likes"
-        label.font = UIFont(name: "Lato-Bold", size: 14)
-        return label
     }()
     
     required init?(coder aDecoder: NSCoder) {

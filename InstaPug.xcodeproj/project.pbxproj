@@ -21,6 +21,8 @@
 		CEA410A222F49CA4005EB4A0 /* UIImageView+load.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA410A122F49CA4005EB4A0 /* UIImageView+load.swift */; };
 		CEA410A522F4BB4B005EB4A0 /* UIView+Stacking.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA410A422F4BB4B005EB4A0 /* UIView+Stacking.swift */; };
 		CEA410A722F4BBAE005EB4A0 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA410A622F4BBAE005EB4A0 /* UIStackView.swift */; };
+		CEA410AB22F4F4B6005EB4A0 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA410AA22F4F4B6005EB4A0 /* LikeButton.swift */; };
+		CEA410AD22F4FD16005EB4A0 /* LikeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA410AC22F4FD16005EB4A0 /* LikeLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		CEA410A122F49CA4005EB4A0 /* UIImageView+load.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+load.swift"; sourceTree = "<group>"; };
 		CEA410A422F4BB4B005EB4A0 /* UIView+Stacking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Stacking.swift"; sourceTree = "<group>"; };
 		CEA410A622F4BBAE005EB4A0 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
+		CEA410AA22F4F4B6005EB4A0 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
+		CEA410AC22F4FD16005EB4A0 /* LikeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,8 @@
 			children = (
 				CE3A219322F3C74900ADC35C /* PostViewController.swift */,
 				CE3A21A522F3DD2100ADC35C /* PostViewCell.swift */,
+				CEA410AA22F4F4B6005EB4A0 /* LikeButton.swift */,
+				CEA410AC22F4FD16005EB4A0 /* LikeLabel.swift */,
 				CEA4109D22F3FB6B005EB4A0 /* Posts.swift */,
 				CE3A21A722F3DE9300ADC35C /* Post.swift */,
 			);
@@ -185,6 +191,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEA410AB22F4F4B6005EB4A0 /* LikeButton.swift in Sources */,
 				CE3A219422F3C74900ADC35C /* PostViewController.swift in Sources */,
 				CE3A21AE22F3ED1800ADC35C /* Space.swift in Sources */,
 				CE3A219222F3C74900ADC35C /* AppDelegate.swift in Sources */,
@@ -193,6 +200,7 @@
 				CE3A21A422F3C77000ADC35C /* APIClient.swift in Sources */,
 				CEA410A222F49CA4005EB4A0 /* UIImageView+load.swift in Sources */,
 				CEA410A722F4BBAE005EB4A0 /* UIStackView.swift in Sources */,
+				CEA410AD22F4FD16005EB4A0 /* LikeLabel.swift in Sources */,
 				CE3A21A622F3DD2100ADC35C /* PostViewCell.swift in Sources */,
 				CEA4109E22F3FB6B005EB4A0 /* Posts.swift in Sources */,
 				CEA410A522F4BB4B005EB4A0 /* UIView+Stacking.swift in Sources */,
