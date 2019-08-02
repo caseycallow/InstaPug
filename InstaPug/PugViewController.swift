@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PugViewController.swift
 //  InstaPug
 //
 //  Created by Casey Callow on 8/1/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PugViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
