@@ -18,7 +18,7 @@
 		CE3A21AF22F3ED1800ADC35C /* AnchoredContraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3A21AD22F3ED1800ADC35C /* AnchoredContraints.swift */; };
 		CE3A21B122F3EDC100ADC35C /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3A21B022F3EDC100ADC35C /* UIView+Layout.swift */; };
 		CEA4109E22F3FB6B005EB4A0 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA4109D22F3FB6B005EB4A0 /* Posts.swift */; };
-		CEA410A022F49871005EB4A0 /* UIImage+loadURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA4109F22F49871005EB4A0 /* UIImage+loadURL.swift */; };
+		CEA410A222F49CA4005EB4A0 /* UIImageView+load.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA410A122F49CA4005EB4A0 /* UIImageView+load.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +35,7 @@
 		CE3A21AD22F3ED1800ADC35C /* AnchoredContraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchoredContraints.swift; sourceTree = "<group>"; };
 		CE3A21B022F3EDC100ADC35C /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		CEA4109D22F3FB6B005EB4A0 /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
-		CEA4109F22F49871005EB4A0 /* UIImage+loadURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+loadURL.swift"; sourceTree = "<group>"; };
+		CEA410A122F49CA4005EB4A0 /* UIImageView+load.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+load.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,11 +69,8 @@
 			isa = PBXGroup;
 			children = (
 				CE3A219122F3C74900ADC35C /* AppDelegate.swift */,
-				CE3A219322F3C74900ADC35C /* PostViewController.swift */,
-				CE3A21A722F3DE9300ADC35C /* Post.swift */,
-				CEA4109D22F3FB6B005EB4A0 /* Posts.swift */,
-				CE3A21A522F3DD2100ADC35C /* PostViewCell.swift */,
 				CE3A21A322F3C77000ADC35C /* APIClient.swift */,
+				CEA410A322F49FEF005EB4A0 /* Post */,
 				CE3A21B222F3EDC600ADC35C /* Extensions */,
 				CE3A21AB22F3ED1800ADC35C /* Layout */,
 				CE3A219822F3C74B00ADC35C /* Assets.xcassets */,
@@ -96,9 +93,20 @@
 			isa = PBXGroup;
 			children = (
 				CE3A21B022F3EDC100ADC35C /* UIView+Layout.swift */,
-				CEA4109F22F49871005EB4A0 /* UIImage+loadURL.swift */,
+				CEA410A122F49CA4005EB4A0 /* UIImageView+load.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CEA410A322F49FEF005EB4A0 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				CE3A219322F3C74900ADC35C /* PostViewController.swift */,
+				CE3A21A522F3DD2100ADC35C /* PostViewCell.swift */,
+				CEA4109D22F3FB6B005EB4A0 /* Posts.swift */,
+				CE3A21A722F3DE9300ADC35C /* Post.swift */,
+			);
+			path = Post;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,10 +185,10 @@
 				CE3A21AF22F3ED1800ADC35C /* AnchoredContraints.swift in Sources */,
 				CE3A21B122F3EDC100ADC35C /* UIView+Layout.swift in Sources */,
 				CE3A21A422F3C77000ADC35C /* APIClient.swift in Sources */,
+				CEA410A222F49CA4005EB4A0 /* UIImageView+load.swift in Sources */,
 				CE3A21A622F3DD2100ADC35C /* PostViewCell.swift in Sources */,
 				CEA4109E22F3FB6B005EB4A0 /* Posts.swift in Sources */,
 				CE3A21A822F3DE9300ADC35C /* Post.swift in Sources */,
-				CEA410A022F49871005EB4A0 /* UIImage+loadURL.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

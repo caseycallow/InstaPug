@@ -83,10 +83,26 @@ extension PostViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! PostViewCell
-//        let post = posts[indexPath.item]
+        let post = posts[indexPath.item]
+        
+        cell.imageView.load(url: post.imageURL)
         
         return cell
     }
+}
+
+// MARK: - Flow Layout Delegate
+
+extension PostViewController: UICollectionViewDelegateFlowLayout {
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = view.safeAreaLayoutGuide.layoutFrame.size.width
+        return CGSize(width: width, height: width)
+    }
     
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
 }
