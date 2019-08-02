@@ -5,9 +5,8 @@
 //  Created by Casey Callow on 7/24/19.
 //  Copyright © 2019 Casey Callow. All rights reserved.
 //
-
-///  From Brian Voong
-///  https://github.com/bhlvoong/LBTATools
+//  From Brian Voong
+//  https://github.com/bhlvoong/LBTATools
 
 import UIKit
 

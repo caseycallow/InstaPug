@@ -10,25 +10,44 @@ import UIKit
 
 class PostViewCell: UICollectionViewCell {
     
-    lazy var imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-    
-    func configure(_ post: Post) {
+    public func configure(_ post: Post) {
         imageView.load(url: post.imageURL)
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addViews()
+        layoutComponents()
+    }
+  
+    private func layoutComponents() {
+        stack(imageView,
+              stack(likeButton,
+                    likeLabel, spacing: 16, alignment: .leading).padLeft(16),
+                    spacing: 16).withMargins(.init(top: 16, left: 0, bottom: 16, right: 0))
     }
     
-    private func addViews() {
-        addSubview(imageView)
-        imageView.fillSuperview()
-    }
+    // MARK: Components
+    
+    lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
+    
+    lazy var likeButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "heart"), for: .normal)
+        button.setImage(UIImage(named: "heartFilled"), for: .selected)
+        button.imageView?.contentMode = .scaleAspectFit
+        return button
+    }()
+    
+    lazy var likeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "17 Likes"
+        label.font = UIFont(name: "Lato-Bold", size: 14)
+        return label
+    }()
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

@@ -19,6 +19,8 @@
 		CE3A21B122F3EDC100ADC35C /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3A21B022F3EDC100ADC35C /* UIView+Layout.swift */; };
 		CEA4109E22F3FB6B005EB4A0 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA4109D22F3FB6B005EB4A0 /* Posts.swift */; };
 		CEA410A222F49CA4005EB4A0 /* UIImageView+load.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA410A122F49CA4005EB4A0 /* UIImageView+load.swift */; };
+		CEA410A522F4BB4B005EB4A0 /* UIView+Stacking.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA410A422F4BB4B005EB4A0 /* UIView+Stacking.swift */; };
+		CEA410A722F4BBAE005EB4A0 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA410A622F4BBAE005EB4A0 /* UIStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		CE3A21B022F3EDC100ADC35C /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		CEA4109D22F3FB6B005EB4A0 /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
 		CEA410A122F49CA4005EB4A0 /* UIImageView+load.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+load.swift"; sourceTree = "<group>"; };
+		CEA410A422F4BB4B005EB4A0 /* UIView+Stacking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Stacking.swift"; sourceTree = "<group>"; };
+		CEA410A622F4BBAE005EB4A0 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,8 @@
 			children = (
 				CE3A21B022F3EDC100ADC35C /* UIView+Layout.swift */,
 				CEA410A122F49CA4005EB4A0 /* UIImageView+load.swift */,
+				CEA410A422F4BB4B005EB4A0 /* UIView+Stacking.swift */,
+				CEA410A622F4BBAE005EB4A0 /* UIStackView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -186,8 +192,10 @@
 				CE3A21B122F3EDC100ADC35C /* UIView+Layout.swift in Sources */,
 				CE3A21A422F3C77000ADC35C /* APIClient.swift in Sources */,
 				CEA410A222F49CA4005EB4A0 /* UIImageView+load.swift in Sources */,
+				CEA410A722F4BBAE005EB4A0 /* UIStackView.swift in Sources */,
 				CE3A21A622F3DD2100ADC35C /* PostViewCell.swift in Sources */,
 				CEA4109E22F3FB6B005EB4A0 /* Posts.swift in Sources */,
+				CEA410A522F4BB4B005EB4A0 /* UIView+Stacking.swift in Sources */,
 				CE3A21A822F3DE9300ADC35C /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
