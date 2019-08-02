@@ -23,6 +23,8 @@ class PostViewController: UIViewController {
         super.viewWillAppear(true)
     }
     
+    // MARK: Loading Data
+    
     private func fetchPosts() {
         let request = APIRequest(method: .get, path: "bomb")
         request.queryItems = [URLQueryItem(name: "count", value: "50")]
@@ -85,7 +87,7 @@ extension PostViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! PostViewCell
         let post = posts[indexPath.item]
         
-        cell.imageView.load(url: post.imageURL)
+        cell.configure(post)
         
         return cell
     }

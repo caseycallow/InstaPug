@@ -16,6 +16,10 @@ class PostViewCell: UICollectionViewCell {
         return imageView
     }()
     
+    func configure(_ post: Post) {
+        imageView.load(url: post.imageURL)
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addViews()
