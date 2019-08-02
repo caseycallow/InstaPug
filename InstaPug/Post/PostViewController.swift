@@ -11,18 +11,27 @@ import UIKit
 class PostViewController: UIViewController {
     
     var posts: [Post] = []
+    
     private let cellID = "postCell"
+    fileprivate lazy var collectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: flowLayout)
+        collectionView.backgroundColor = .white
+        collectionView.register(PostViewCell.self, forCellWithReuseIdentifier: cellID)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.alwaysBounceVertical = true
+        view.addSubview(collectionView)
+        
+        return collectionView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         fetchPosts()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-    }
-    
+
     // MARK: Loading Data
     
     private func fetchPosts() {
@@ -55,19 +64,6 @@ class PostViewController: UIViewController {
     }
     
     // MARK : UI
-    
-    lazy var collectionView: UICollectionView = {
-        let flowLayout = UICollectionViewFlowLayout()
-        let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: flowLayout)
-        collectionView.backgroundColor = .white
-        collectionView.register(PostViewCell.self, forCellWithReuseIdentifier: cellID)
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.alwaysBounceVertical = true
-        view.addSubview(collectionView)
-        
-        return collectionView
-    }()
     
     private func setupUI() {
         collectionView.fillSuperviewSafeAreaLayoutGuide()

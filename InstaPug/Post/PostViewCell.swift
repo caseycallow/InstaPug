@@ -12,6 +12,7 @@ class PostViewCell: UICollectionViewCell {
     
     public func configure(_ post: Post) {
         imageView.load(url: post.imageURL)
+        setLabel(likes: post.totalLikes)
     }
     
     override init(frame: CGRect) {
@@ -22,29 +23,38 @@ class PostViewCell: UICollectionViewCell {
     private func layoutComponents() {
         stack(imageView,
               stack(likeButton,
-                    likeLabel, spacing: 16, alignment: .leading).padLeft(16),
-                    spacing: 16).withMargins(.init(top: 16, left: 0, bottom: 16, right: 0))
+                    likeLabel,
+                    spacing: 8,
+                    alignment: .leading).padLeft(16),
+                    spacing: 16)
+            .withMargins(.init(top: 12, left: 0, bottom: 12, right: 0))
+    }
+    
+    private func setLabel(likes: Int) {
+        var hasOneLike: Bool { return likes == 1 }
+        likeLabel.text = "\(likes) like\(hasOneLike ? "" : "s")"
     }
     
     // MARK: Components
     
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
     lazy var likeButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "heart"), for: .normal)
-        button.setImage(UIImage(named: "heartFilled"), for: .selected)
+        button.setImage(UIImage(named: "heartFilled"), for: [.highlighted, .selected])
         button.imageView?.contentMode = .scaleAspectFit
+        button.withHeight(24)
         return button
     }()
     
     lazy var likeLabel: UILabel = {
         let label = UILabel()
-        label.text = "17 Likes"
+        label.text = "0 Likes"
         label.font = UIFont(name: "Lato-Bold", size: 14)
         return label
     }()
