@@ -5,11 +5,16 @@
 //  Created by Casey Callow on 8/1/19.
 //  Copyright © 2019 caseycallow. All rights reserved.
 //
+//  From Timothy Miko: https://github.com/timothymiko/swift-networking-examples
+//
 
 import Foundation
 
 enum HTTPMethod: String {
     case get = "GET"
+    case put = "PUT"
+    case post = "POST"
+    case delete = "DELETE"
 }
 
 struct HTTPHeader {
@@ -30,19 +35,41 @@ class APIRequest {
     }
 }
 
+struct APIResponse<Body> {
+    let statusCode: Int
+    let body: Body
+}
+
+extension APIResponse where Body == Data? {
+    func decode<BodyType: Decodable>(to type: BodyType.Type) throws -> APIResponse<BodyType> {
+        guard let data = body else {
+            throw APIError.decodingFailure
+        }
+        let decodedJSON = try JSONDecoder().decode(BodyType.self, from: data)
+        return APIResponse<BodyType>(statusCode: self.statusCode,
+                                     body: decodedJSON)
+    }
+}
+
 enum APIError: Error {
     case invalidURL
     case requestFailed
+    case decodingFailure
+}
+
+enum APIResult<Body> {
+    case success(APIResponse<Body>)
+    case failure(APIError)
 }
 
 struct APIClient {
     
-    typealias APIClientCompletion = (HTTPURLResponse?, Data?, APIError?) -> Void
+    typealias APIClientCompletion = (APIResult<Data?>) -> Void
     
     private let session = URLSession.shared
     private let baseURL = URL(string: "https://pugme.herokuapp.com")!
     
-    func request(_ request: APIRequest, _ completion: @escaping APIClientCompletion) {
+    func perform(_ request: APIRequest, _ completion: @escaping APIClientCompletion) {
         
         var urlComponents = URLComponents()
         urlComponents.scheme = baseURL.scheme
@@ -51,7 +78,7 @@ struct APIClient {
         urlComponents.queryItems = request.queryItems
         
         guard let url = urlComponents.url?.appendingPathComponent(request.path) else {
-            completion(nil, nil, .invalidURL)
+            completion(.failure(.invalidURL))
             return
         }
         
@@ -61,13 +88,13 @@ struct APIClient {
         
         request.headers?.forEach { urlRequest.addValue($0.value, forHTTPHeaderField: $0.field) }
         
-        let task = session.dataTask(with: url) { (data, response, error) in
-            guard let httpResponse = response as? HTTPURLResponse,
-                (200...299).contains(httpResponse.statusCode) else {
-                completion(nil, nil, .requestFailed)
+        let task = session.dataTask(with: urlRequest) { (data, response, error) in
+            guard let httpResponse = response as? HTTPURLResponse else {
+                completion(.failure(.requestFailed))
                 return
             }
-            completion(httpResponse, data, nil)
+            
+            completion(.success(APIResponse<Data?>(statusCode: httpResponse.statusCode, body: data)))
         }
         task.resume()
     }
