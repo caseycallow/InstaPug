@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,7 @@
 		CE474AF022F892F900D02389 /* UICollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE474AEF22F892F900D02389 /* UICollectionReusableView.swift */; };
 		CE474AF222F89EC600D02389 /* PostViewController+FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE474AF122F89EC600D02389 /* PostViewController+FlowLayout.swift */; };
 		CE474AF422F89F1100D02389 /* PostViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE474AF322F89F1100D02389 /* PostViewController+DataSource.swift */; };
+		CE474AF822F8A9C100D02389 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE474AF722F8A9C100D02389 /* ImageLoader.swift */; };
 		CEA4109E22F3FB6B005EB4A0 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA4109D22F3FB6B005EB4A0 /* Posts.swift */; };
 		CEA410A522F4BB4B005EB4A0 /* UIView+Stacking.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA410A422F4BB4B005EB4A0 /* UIView+Stacking.swift */; };
 		CEA410A722F4BBAE005EB4A0 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA410A622F4BBAE005EB4A0 /* UIStackView.swift */; };
@@ -27,9 +28,13 @@
 		CEA410AD22F4FD16005EB4A0 /* LikeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA410AC22F4FD16005EB4A0 /* LikeLabel.swift */; };
 		CEA410AF22F891A0005EB4A0 /* PostCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA410AE22F8919F005EB4A0 /* PostCollectionView.swift */; };
 		CEA410B122F8929B005EB4A0 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA410B022F8929B005EB4A0 /* UICollectionView.swift */; };
+		E4157C3B2EF9A3B950CAF33A /* Pods_InstaPug.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70611DD136C6F87AD9244B81 /* Pods_InstaPug.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		70611DD136C6F87AD9244B81 /* Pods_InstaPug.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstaPug.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B98533801869F6E5C60E8E3B /* Pods-InstaPug.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaPug.debug.xcconfig"; path = "Target Support Files/Pods-InstaPug/Pods-InstaPug.debug.xcconfig"; sourceTree = "<group>"; };
+		B98939881C214B0586851024 /* Pods-InstaPug.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaPug.release.xcconfig"; path = "Target Support Files/Pods-InstaPug/Pods-InstaPug.release.xcconfig"; sourceTree = "<group>"; };
 		CE3A218E22F3C74900ADC35C /* InstaPug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaPug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE3A219122F3C74900ADC35C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE3A219322F3C74900ADC35C /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +50,7 @@
 		CE474AEF22F892F900D02389 /* UICollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionReusableView.swift; sourceTree = "<group>"; };
 		CE474AF122F89EC600D02389 /* PostViewController+FlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PostViewController+FlowLayout.swift"; sourceTree = "<group>"; };
 		CE474AF322F89F1100D02389 /* PostViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PostViewController+DataSource.swift"; sourceTree = "<group>"; };
+		CE474AF722F8A9C100D02389 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		CEA4109D22F3FB6B005EB4A0 /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
 		CEA410A422F4BB4B005EB4A0 /* UIView+Stacking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Stacking.swift"; sourceTree = "<group>"; };
 		CEA410A622F4BBAE005EB4A0 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
@@ -59,17 +65,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4157C3B2EF9A3B950CAF33A /* Pods_InstaPug.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15F9694FE45013A60410C622 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				70611DD136C6F87AD9244B81 /* Pods_InstaPug.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		232AC9EFA9DDC7FD4D6FAE7B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B98533801869F6E5C60E8E3B /* Pods-InstaPug.debug.xcconfig */,
+				B98939881C214B0586851024 /* Pods-InstaPug.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		CE3A218522F3C74900ADC35C = {
 			isa = PBXGroup;
 			children = (
 				CE3A219022F3C74900ADC35C /* InstaPug */,
 				CE3A218F22F3C74900ADC35C /* Products */,
+				232AC9EFA9DDC7FD4D6FAE7B /* Pods */,
+				15F9694FE45013A60410C622 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,6 +112,7 @@
 			children = (
 				CE3A219122F3C74900ADC35C /* AppDelegate.swift */,
 				CE3A21A322F3C77000ADC35C /* APIClient.swift */,
+				CE474AF722F8A9C100D02389 /* ImageLoader.swift */,
 				CEA410A322F49FEF005EB4A0 /* Post */,
 				CE3A21B222F3EDC600ADC35C /* Helpers */,
 				CE3A21AB22F3ED1800ADC35C /* Layout */,
@@ -140,9 +167,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE3A21A022F3C74B00ADC35C /* Build configuration list for PBXNativeTarget "InstaPug" */;
 			buildPhases = (
+				32BA785ABD76C9288F8F38BA /* [CP] Check Pods Manifest.lock */,
 				CE3A218A22F3C74900ADC35C /* Sources */,
 				CE3A218B22F3C74900ADC35C /* Frameworks */,
 				CE3A218C22F3C74900ADC35C /* Resources */,
+				AFF9BD8BF1084816BD6203B7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -198,6 +227,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		32BA785ABD76C9288F8F38BA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-InstaPug-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AFF9BD8BF1084816BD6203B7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InstaPug/Pods-InstaPug-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InstaPug/Pods-InstaPug-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InstaPug/Pods-InstaPug-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CE3A218A22F3C74900ADC35C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -212,6 +283,7 @@
 				CE3A219222F3C74900ADC35C /* AppDelegate.swift in Sources */,
 				CEA410AF22F891A0005EB4A0 /* PostCollectionView.swift in Sources */,
 				CE3A21AF22F3ED1800ADC35C /* AnchoredContraints.swift in Sources */,
+				CE474AF822F8A9C100D02389 /* ImageLoader.swift in Sources */,
 				CE3A21B122F3EDC100ADC35C /* UIView+Layout.swift in Sources */,
 				CE3A21A422F3C77000ADC35C /* APIClient.swift in Sources */,
 				CEA410A722F4BBAE005EB4A0 /* UIStackView.swift in Sources */,
@@ -356,6 +428,7 @@
 		};
 		CE3A21A122F3C74B00ADC35C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B98533801869F6E5C60E8E3B /* Pods-InstaPug.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -374,6 +447,7 @@
 		};
 		CE3A21A222F3C74B00ADC35C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B98939881C214B0586851024 /* Pods-InstaPug.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

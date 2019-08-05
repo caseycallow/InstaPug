@@ -13,7 +13,7 @@ class PostViewCell: UICollectionViewCell {
     let likeButton = LikeButton()
     let likeLabel = LikeLabel()
 
-    public func configure(_ post: Post) {
+    public func configure(with post: Post) {
         setLabel(likes: post.totalLikes)
     }
     

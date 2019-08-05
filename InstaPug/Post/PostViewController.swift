@@ -11,9 +11,9 @@ import UIKit
 class PostViewController: UIViewController {
     
     var posts: [Post] = []
+    var dataTasks: [URLSessionDataTask] = []
     
-    fileprivate var api = APIClient()
-    fileprivate var tasks = [URLSessionTask]()
+    fileprivate let api = APIClient()
     fileprivate let collectionView = PostCollectionView()
 
     override func viewDidLoad() {
@@ -36,7 +36,10 @@ class PostViewController: UIViewController {
                     for url in posts.results {
                         let post = Post(imageURL: url)
                         self.posts.append(post)
-                        self.refreshCells()
+                        
+                        DispatchQueue.main.async {
+                            self.collectionView.reloadData()
+                        }
                     }
                 } else {
                     print("Failed to decode response")
@@ -47,12 +50,6 @@ class PostViewController: UIViewController {
         }
     }
     
-    private func refreshCells() {
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
-    }
-    
     // MARK : UI
     
     private func setupCollectionView() {
@@ -60,23 +57,9 @@ class PostViewController: UIViewController {
 
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.prefetchDataSource = self
         
         collectionView.fillSuperviewSafeAreaLayoutGuide()
         [view, collectionView].forEach { $0?.backgroundColor = .white }
-    }
-}
-
-// MARK - Prefetching
-
-extension PostViewController: UICollectionViewDataSourcePrefetching {
-    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-//        indexPaths.forEach { self.downloadImage(forItemAt: $0) }
-        // if post already exists at indexPath, dont call, otherwise load more
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
-//        indexPaths.forEach { self.cancelDownloadingImage(forItemAt: $0) }
     }
 }
 
