@@ -12,23 +12,13 @@ class PostViewController: UIViewController {
     
     var posts: [Post] = []
     
-    private let cellID = "postCell"
-    fileprivate lazy var collectionView: UICollectionView = {
-        let flowLayout = UICollectionViewFlowLayout()
-        let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: flowLayout)
-        collectionView.backgroundColor = .white
-        collectionView.register(PostViewCell.self, forCellWithReuseIdentifier: cellID)
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.alwaysBounceVertical = true
-        view.addSubview(collectionView)
-        
-        return collectionView
-    }()
+    fileprivate var api = APIClient()
+    fileprivate var tasks = [URLSessionTask]()
+    fileprivate let collectionView = PostCollectionView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        setupCollectionView()
         fetchPosts()
     }
 
@@ -38,13 +28,13 @@ class PostViewController: UIViewController {
         let request = APIRequest(method: .get, path: "bomb")
         request.queryItems = [URLQueryItem(name: "count", value: "50")]
         
-        APIClient().perform(request) { (result) in
+        api.perform(request) { (result) in
             switch result {
             case .success(let response):
                 if let response = try? response.decode(to: Posts.self) {
                     let posts = response.body
                     for url in posts.results {
-                        let post = Post(imageURL: url, isLiked: false)
+                        let post = Post(imageURL: url)
                         self.posts.append(post)
                         self.refreshCells()
                     }
@@ -65,46 +55,30 @@ class PostViewController: UIViewController {
     
     // MARK : UI
     
-    private func setupUI() {
+    private func setupCollectionView() {
+        view.addSubview(collectionView)
+
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.prefetchDataSource = self
+        
         collectionView.fillSuperviewSafeAreaLayoutGuide()
         [view, collectionView].forEach { $0?.backgroundColor = .white }
     }
 }
 
-// MARK: Delegate + Data Source
+// MARK - Prefetching
 
-extension PostViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return posts.count
+extension PostViewController: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+//        indexPaths.forEach { self.downloadImage(forItemAt: $0) }
+        // if post already exists at indexPath, dont call, otherwise load more
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! PostViewCell
-        let post = posts[indexPath.item]
-        
-        cell.configure(post)
-        
-        return cell
+    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
+//        indexPaths.forEach { self.cancelDownloadingImage(forItemAt: $0) }
     }
 }
 
-// MARK: - Flow Layout Delegate
-
-extension PostViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = view.safeAreaLayoutGuide.layoutFrame.size.width
-        return CGSize(width: width, height: width)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-}
+// pull all API requests out of VC
+// new file AppAPIClient

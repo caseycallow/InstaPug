@@ -18,6 +18,8 @@
 		CE3A21AF22F3ED1800ADC35C /* AnchoredContraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3A21AD22F3ED1800ADC35C /* AnchoredContraints.swift */; };
 		CE3A21B122F3EDC100ADC35C /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3A21B022F3EDC100ADC35C /* UIView+Layout.swift */; };
 		CE474AF022F892F900D02389 /* UICollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE474AEF22F892F900D02389 /* UICollectionReusableView.swift */; };
+		CE474AF222F89EC600D02389 /* PostViewController+FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE474AF122F89EC600D02389 /* PostViewController+FlowLayout.swift */; };
+		CE474AF422F89F1100D02389 /* PostViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE474AF322F89F1100D02389 /* PostViewController+DataSource.swift */; };
 		CEA4109E22F3FB6B005EB4A0 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA4109D22F3FB6B005EB4A0 /* Posts.swift */; };
 		CEA410A522F4BB4B005EB4A0 /* UIView+Stacking.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA410A422F4BB4B005EB4A0 /* UIView+Stacking.swift */; };
 		CEA410A722F4BBAE005EB4A0 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA410A622F4BBAE005EB4A0 /* UIStackView.swift */; };
@@ -41,6 +43,8 @@
 		CE3A21AD22F3ED1800ADC35C /* AnchoredContraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchoredContraints.swift; sourceTree = "<group>"; };
 		CE3A21B022F3EDC100ADC35C /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		CE474AEF22F892F900D02389 /* UICollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionReusableView.swift; sourceTree = "<group>"; };
+		CE474AF122F89EC600D02389 /* PostViewController+FlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PostViewController+FlowLayout.swift"; sourceTree = "<group>"; };
+		CE474AF322F89F1100D02389 /* PostViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PostViewController+DataSource.swift"; sourceTree = "<group>"; };
 		CEA4109D22F3FB6B005EB4A0 /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
 		CEA410A422F4BB4B005EB4A0 /* UIView+Stacking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Stacking.swift"; sourceTree = "<group>"; };
 		CEA410A622F4BBAE005EB4A0 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
@@ -83,7 +87,7 @@
 				CE3A219122F3C74900ADC35C /* AppDelegate.swift */,
 				CE3A21A322F3C77000ADC35C /* APIClient.swift */,
 				CEA410A322F49FEF005EB4A0 /* Post */,
-				CE3A21B222F3EDC600ADC35C /* Extensions */,
+				CE3A21B222F3EDC600ADC35C /* Helpers */,
 				CE3A21AB22F3ED1800ADC35C /* Layout */,
 				CE3A219822F3C74B00ADC35C /* Assets.xcassets */,
 				CE3A219A22F3C74B00ADC35C /* LaunchScreen.storyboard */,
@@ -101,7 +105,7 @@
 			path = Layout;
 			sourceTree = "<group>";
 		};
-		CE3A21B222F3EDC600ADC35C /* Extensions */ = {
+		CE3A21B222F3EDC600ADC35C /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				CE3A21B022F3EDC100ADC35C /* UIView+Layout.swift */,
@@ -110,13 +114,15 @@
 				CEA410B022F8929B005EB4A0 /* UICollectionView.swift */,
 				CE474AEF22F892F900D02389 /* UICollectionReusableView.swift */,
 			);
-			path = Extensions;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		CEA410A322F49FEF005EB4A0 /* Post */ = {
 			isa = PBXGroup;
 			children = (
 				CE3A219322F3C74900ADC35C /* PostViewController.swift */,
+				CE474AF122F89EC600D02389 /* PostViewController+FlowLayout.swift */,
+				CE474AF322F89F1100D02389 /* PostViewController+DataSource.swift */,
 				CEA410AE22F8919F005EB4A0 /* PostCollectionView.swift */,
 				CE3A21A522F3DD2100ADC35C /* PostViewCell.swift */,
 				CEA410AA22F4F4B6005EB4A0 /* LikeButton.swift */,
@@ -198,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEA410B122F8929B005EB4A0 /* UICollectionView.swift in Sources */,
+				CE474AF422F89F1100D02389 /* PostViewController+DataSource.swift in Sources */,
 				CE474AF022F892F900D02389 /* UICollectionReusableView.swift in Sources */,
 				CEA410AB22F4F4B6005EB4A0 /* LikeButton.swift in Sources */,
 				CE3A219422F3C74900ADC35C /* PostViewController.swift in Sources */,
@@ -213,6 +220,7 @@
 				CEA4109E22F3FB6B005EB4A0 /* Posts.swift in Sources */,
 				CEA410A522F4BB4B005EB4A0 /* UIView+Stacking.swift in Sources */,
 				CE3A21A822F3DE9300ADC35C /* Post.swift in Sources */,
+				CE474AF222F89EC600D02389 /* PostViewController+FlowLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

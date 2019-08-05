@@ -6,13 +6,18 @@
 //  Copyright © 2019 caseycallow. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct Post {
     public let imageURL: URL
+    public var image: UIImage?
     public var isLiked: Bool = false
     public var totalLikes: Int {
         let hash = abs(imageURL.absoluteURL.hashValue % 10)
         return hash
+    }
+    
+    init(imageURL: URL) {
+        self.imageURL = imageURL
     }
 }

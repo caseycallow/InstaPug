@@ -14,7 +14,6 @@ class PostViewCell: UICollectionViewCell {
     let likeLabel = LikeLabel()
 
     public func configure(_ post: Post) {
-        imageView.load(url: post.imageURL)
         setLabel(likes: post.totalLikes)
     }
     
