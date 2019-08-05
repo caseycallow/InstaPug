@@ -12,6 +12,12 @@ class PostViewCell: UICollectionViewCell {
     
     let likeButton = LikeButton()
     let likeLabel = LikeLabel()
+    
+    lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
 
     public func configure(with post: Post) {
         setLabel(likes: post.totalLikes)
@@ -36,12 +42,6 @@ class PostViewCell: UICollectionViewCell {
         var hasOneLike: Bool { return likes == 1 }
         likeLabel.text = "\(likes) like\(hasOneLike ? "" : "s")"
     }
-    
-    lazy var imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

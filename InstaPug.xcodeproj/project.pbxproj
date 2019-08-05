@@ -21,6 +21,8 @@
 		CE474AF222F89EC600D02389 /* PostViewController+FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE474AF122F89EC600D02389 /* PostViewController+FlowLayout.swift */; };
 		CE474AF422F89F1100D02389 /* PostViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE474AF322F89F1100D02389 /* PostViewController+DataSource.swift */; };
 		CE474AF822F8A9C100D02389 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE474AF722F8A9C100D02389 /* ImageLoader.swift */; };
+		CE474AFC22F8BD4000D02389 /* PostViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE474AFB22F8BD4000D02389 /* PostViewController+Delegate.swift */; };
+		CE474AFE22F8C0F100D02389 /* PostViewController+Prefetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE474AFD22F8C0F100D02389 /* PostViewController+Prefetching.swift */; };
 		CEA4109E22F3FB6B005EB4A0 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA4109D22F3FB6B005EB4A0 /* Posts.swift */; };
 		CEA410A522F4BB4B005EB4A0 /* UIView+Stacking.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA410A422F4BB4B005EB4A0 /* UIView+Stacking.swift */; };
 		CEA410A722F4BBAE005EB4A0 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA410A622F4BBAE005EB4A0 /* UIStackView.swift */; };
@@ -51,6 +53,8 @@
 		CE474AF122F89EC600D02389 /* PostViewController+FlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PostViewController+FlowLayout.swift"; sourceTree = "<group>"; };
 		CE474AF322F89F1100D02389 /* PostViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PostViewController+DataSource.swift"; sourceTree = "<group>"; };
 		CE474AF722F8A9C100D02389 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		CE474AFB22F8BD4000D02389 /* PostViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PostViewController+Delegate.swift"; sourceTree = "<group>"; };
+		CE474AFD22F8C0F100D02389 /* PostViewController+Prefetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PostViewController+Prefetching.swift"; sourceTree = "<group>"; };
 		CEA4109D22F3FB6B005EB4A0 /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
 		CEA410A422F4BB4B005EB4A0 /* UIView+Stacking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Stacking.swift"; sourceTree = "<group>"; };
 		CEA410A622F4BBAE005EB4A0 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
@@ -113,7 +117,13 @@
 				CE3A219122F3C74900ADC35C /* AppDelegate.swift */,
 				CE3A21A322F3C77000ADC35C /* APIClient.swift */,
 				CE474AF722F8A9C100D02389 /* ImageLoader.swift */,
-				CEA410A322F49FEF005EB4A0 /* Post */,
+				CE3A219322F3C74900ADC35C /* PostViewController.swift */,
+				CE474AF322F89F1100D02389 /* PostViewController+DataSource.swift */,
+				CE474AFD22F8C0F100D02389 /* PostViewController+Prefetching.swift */,
+				CE474AFB22F8BD4000D02389 /* PostViewController+Delegate.swift */,
+				CE474AF122F89EC600D02389 /* PostViewController+FlowLayout.swift */,
+				CE474AFA22F8BC9F00D02389 /* Models */,
+				CE474AF922F8BC8700D02389 /* Views */,
 				CE3A21B222F3EDC600ADC35C /* Helpers */,
 				CE3A21AB22F3ED1800ADC35C /* Layout */,
 				CE3A219822F3C74B00ADC35C /* Assets.xcassets */,
@@ -144,20 +154,24 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		CEA410A322F49FEF005EB4A0 /* Post */ = {
+		CE474AF922F8BC8700D02389 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CE3A219322F3C74900ADC35C /* PostViewController.swift */,
-				CE474AF122F89EC600D02389 /* PostViewController+FlowLayout.swift */,
-				CE474AF322F89F1100D02389 /* PostViewController+DataSource.swift */,
-				CEA410AE22F8919F005EB4A0 /* PostCollectionView.swift */,
-				CE3A21A522F3DD2100ADC35C /* PostViewCell.swift */,
 				CEA410AA22F4F4B6005EB4A0 /* LikeButton.swift */,
 				CEA410AC22F4FD16005EB4A0 /* LikeLabel.swift */,
-				CEA4109D22F3FB6B005EB4A0 /* Posts.swift */,
-				CE3A21A722F3DE9300ADC35C /* Post.swift */,
+				CE3A21A522F3DD2100ADC35C /* PostViewCell.swift */,
+				CEA410AE22F8919F005EB4A0 /* PostCollectionView.swift */,
 			);
-			path = Post;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CE474AFA22F8BC9F00D02389 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CE3A21A722F3DE9300ADC35C /* Post.swift */,
+				CEA4109D22F3FB6B005EB4A0 /* Posts.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,12 +293,14 @@
 				CE474AF022F892F900D02389 /* UICollectionReusableView.swift in Sources */,
 				CEA410AB22F4F4B6005EB4A0 /* LikeButton.swift in Sources */,
 				CE3A219422F3C74900ADC35C /* PostViewController.swift in Sources */,
+				CE474AFC22F8BD4000D02389 /* PostViewController+Delegate.swift in Sources */,
 				CE3A21AE22F3ED1800ADC35C /* Space.swift in Sources */,
 				CE3A219222F3C74900ADC35C /* AppDelegate.swift in Sources */,
 				CEA410AF22F891A0005EB4A0 /* PostCollectionView.swift in Sources */,
 				CE3A21AF22F3ED1800ADC35C /* AnchoredContraints.swift in Sources */,
 				CE474AF822F8A9C100D02389 /* ImageLoader.swift in Sources */,
 				CE3A21B122F3EDC100ADC35C /* UIView+Layout.swift in Sources */,
+				CE474AFE22F8C0F100D02389 /* PostViewController+Prefetching.swift in Sources */,
 				CE3A21A422F3C77000ADC35C /* APIClient.swift in Sources */,
 				CEA410A722F4BBAE005EB4A0 /* UIStackView.swift in Sources */,
 				CEA410AD22F4FD16005EB4A0 /* LikeLabel.swift in Sources */,

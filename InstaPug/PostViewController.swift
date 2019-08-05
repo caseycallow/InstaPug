@@ -11,7 +11,6 @@ import UIKit
 class PostViewController: UIViewController {
     
     var posts: [Post] = []
-    var dataTasks: [URLSessionDataTask] = []
     
     fileprivate let api = APIClient()
     fileprivate let collectionView = PostCollectionView()
@@ -24,7 +23,7 @@ class PostViewController: UIViewController {
 
     // MARK: Loading Data
     
-    private func fetchPosts() {
+    func fetchPosts() {
         let request = APIRequest(method: .get, path: "bomb")
         request.queryItems = [URLQueryItem(name: "count", value: "50")]
         
@@ -57,6 +56,7 @@ class PostViewController: UIViewController {
 
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.prefetchDataSource = self
         
         collectionView.fillSuperviewSafeAreaLayoutGuide()
         [view, collectionView].forEach { $0?.backgroundColor = .white }
