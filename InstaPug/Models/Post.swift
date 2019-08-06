@@ -8,16 +8,15 @@
 
 import UIKit
 
-struct Post {
+class Post {
     public let imageURL: URL
-    public var isFavorited: Bool
+    public var isFavorited: Bool = false
     public var totalFavorites: Int {
         return generateRandomNumberFrom(imageURL)
     }
     
     init(imageURL: URL) {
         self.imageURL = imageURL
-        self.isFavorited = false
     }
     
     fileprivate func generateRandomNumberFrom(_ url: URL) -> Int {

@@ -8,17 +8,17 @@
 
 import UIKit
 
+protocol PostViewCellDelegate {
+    func favoriteButtonTapped(for cell: PostViewCell)
+}
+
 class PostViewCell: UICollectionViewCell {
     
-    public var postViewController: PostViewController?
-    
-    public var post: Post? {
-        didSet {
-            if let post = post {
-                loadImage(for: post)
-                updateFavorites(for: post)
-            }
-        }
+    public var delegate: PostViewCellDelegate?
+
+    public func configure(for post: Post) {
+        loadImage(for: post)
+        updateFavorites(for: post)
     }
     
     // MARK: Components
@@ -34,11 +34,11 @@ class PostViewCell: UICollectionViewCell {
     
     // MARK: Private Methods
     
-    private func loadImage(for post: Post) {
+    public func loadImage(for post: Post) {
         ImageLoader().loadImage(from: post.imageURL, for: self)
     }
     
-    private func updateFavorites(for post: Post) {
+    public func updateFavorites(for post: Post) {
         let favorited = post.isFavorited
         let totalFavorites = favorited ? post.totalFavorites + 1 : post.totalFavorites
         
@@ -55,14 +55,14 @@ class PostViewCell: UICollectionViewCell {
     }
     
     private func addActions() {
-        favoriteButton.addTarget(self, action: #selector(favoriteButtonTapped), for: .touchUpInside)
+        favoriteButton.addTarget(self, action: #selector(handleFavoriteButtonTap), for: .touchUpInside)
     }
     
-    @objc private func favoriteButtonTapped(_ sender: FavoriteButton) {
-        postViewController?.handleFavorite(for: self)
+    @objc private func handleFavoriteButtonTap(_ sender: FavoriteButton) {
+        delegate?.favoriteButtonTapped(for: self)
     }
     
-    // MARK: UI
+    // MARK: Layout
     
     private func layoutComponents() {
         stack(imageView,

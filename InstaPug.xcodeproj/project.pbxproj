@@ -30,6 +30,7 @@
 		CEA410AD22F4FD16005EB4A0 /* FavoriteLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA410AC22F4FD16005EB4A0 /* FavoriteLabel.swift */; };
 		CEA410AF22F891A0005EB4A0 /* PostCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA410AE22F8919F005EB4A0 /* PostCollectionView.swift */; };
 		CEA410B122F8929B005EB4A0 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA410B022F8929B005EB4A0 /* UICollectionView.swift */; };
+		CEB9966B22F9E3BF00D1BB95 /* PostViewController+PostViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB9966A22F9E3BF00D1BB95 /* PostViewController+PostViewCellDelegate.swift */; };
 		E4157C3B2EF9A3B950CAF33A /* Pods_InstaPug.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70611DD136C6F87AD9244B81 /* Pods_InstaPug.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		CEA410AC22F4FD16005EB4A0 /* FavoriteLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteLabel.swift; sourceTree = "<group>"; };
 		CEA410AE22F8919F005EB4A0 /* PostCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionView.swift; sourceTree = "<group>"; };
 		CEA410B022F8929B005EB4A0 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
+		CEB9966A22F9E3BF00D1BB95 /* PostViewController+PostViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PostViewController+PostViewCellDelegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,10 +119,12 @@
 				CE3A219122F3C74900ADC35C /* AppDelegate.swift */,
 				CE3A21A322F3C77000ADC35C /* APIClient.swift */,
 				CE474AF722F8A9C100D02389 /* ImageLoader.swift */,
+				CE3A21A522F3DD2100ADC35C /* PostViewCell.swift */,
 				CE3A219322F3C74900ADC35C /* PostViewController.swift */,
 				CE474AF322F89F1100D02389 /* PostViewController+DataSource.swift */,
 				CE474AFD22F8C0F100D02389 /* PostViewController+Prefetching.swift */,
 				CE474AFB22F8BD4000D02389 /* PostViewController+Delegate.swift */,
+				CEB9966A22F9E3BF00D1BB95 /* PostViewController+PostViewCellDelegate.swift */,
 				CE474AF122F89EC600D02389 /* PostViewController+FlowLayout.swift */,
 				CE474AFA22F8BC9F00D02389 /* Models */,
 				CE474AF922F8BC8700D02389 /* Views */,
@@ -159,7 +163,6 @@
 			children = (
 				CEA410AA22F4F4B6005EB4A0 /* FavoriteButton.swift */,
 				CEA410AC22F4FD16005EB4A0 /* FavoriteLabel.swift */,
-				CE3A21A522F3DD2100ADC35C /* PostViewCell.swift */,
 				CEA410AE22F8919F005EB4A0 /* PostCollectionView.swift */,
 			);
 			path = Views;
@@ -292,6 +295,7 @@
 				CE474AF422F89F1100D02389 /* PostViewController+DataSource.swift in Sources */,
 				CE474AF022F892F900D02389 /* UICollectionReusableView.swift in Sources */,
 				CEA410AB22F4F4B6005EB4A0 /* FavoriteButton.swift in Sources */,
+				CEB9966B22F9E3BF00D1BB95 /* PostViewController+PostViewCellDelegate.swift in Sources */,
 				CE3A219422F3C74900ADC35C /* PostViewController.swift in Sources */,
 				CE474AFC22F8BD4000D02389 /* PostViewController+Delegate.swift in Sources */,
 				CE3A21AE22F3ED1800ADC35C /* Space.swift in Sources */,

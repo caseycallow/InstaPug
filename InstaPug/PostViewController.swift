@@ -10,10 +10,10 @@ import UIKit
 
 class PostViewController: UIViewController {
     
-    var posts: [Post] = []
-    
-    fileprivate let api = APIClient()
-    fileprivate let collectionView = PostCollectionView()
+    public var posts: [Post] = []
+
+    private let api = APIClient()
+    let collectionView = PostCollectionView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,17 +47,6 @@ class PostViewController: UIViewController {
             case .failure(let error):
                 print("Error perform network request: \(error)")
             }
-        }
-    }
-    
-    func handleFavorite(for cell: PostViewCell) {
-        if let indexPath = self.collectionView.indexPath(for: cell) {
-            var post = self.posts[indexPath.item]
-            
-            post.isFavorited = !post.isFavorited
-            cell.post = post
-            
-            print("handFav called")
         }
     }
     

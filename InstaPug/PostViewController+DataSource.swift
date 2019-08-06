@@ -18,8 +18,8 @@ extension PostViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeue(PostViewCell.self, for: indexPath)
         let post = posts[indexPath.item]
         
-        cell.postViewController = self
-        cell.post = post
+        cell.delegate = self
+        cell.configure(for: post)
         
         return cell
     }
