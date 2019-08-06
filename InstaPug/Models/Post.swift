@@ -10,13 +10,18 @@ import UIKit
 
 struct Post {
     public let imageURL: URL
-    public var isLiked: Bool = false
-    public var totalLikes: Int {
-        let hash = abs(imageURL.absoluteURL.hashValue % 10)
-        return hash
+    public var isFavorited: Bool
+    public var totalFavorites: Int {
+        return generateRandomNumberFrom(imageURL)
     }
     
     init(imageURL: URL) {
         self.imageURL = imageURL
+        self.isFavorited = false
+    }
+    
+    fileprivate func generateRandomNumberFrom(_ url: URL) -> Int {
+        let hash = abs(url.absoluteString.hashValue % 10 * 13)
+        return hash
     }
 }

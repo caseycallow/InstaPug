@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 extension PostViewController: UICollectionViewDataSource {
     
@@ -19,9 +18,8 @@ extension PostViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeue(PostViewCell.self, for: indexPath)
         let post = posts[indexPath.item]
         
-        ImageLoader().loadImage(from: post.imageURL, for: cell)
-        
-        cell.configure(with: post)
+        cell.postViewController = self
+        cell.post = post
         
         return cell
     }

@@ -1,5 +1,5 @@
 //
-//  LikeLabel.swift
+//  FavoriteLabel.swift
 //  InstaPug
 //
 //  Created by Casey Callow on 8/2/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LikeLabel: UILabel {
+class FavoriteLabel: UILabel {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -16,7 +16,6 @@ class LikeLabel: UILabel {
     }
     
     private func setupStyles() {
-        text = "0 Likes"
         textColor = .black
         font = UIFont(name: "Lato-Bold", size: 14)
     }

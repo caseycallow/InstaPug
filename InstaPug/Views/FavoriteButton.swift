@@ -8,27 +8,17 @@
 
 import UIKit
 
-class LikeButton: UIButton {
+class FavoriteButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupStyles()
-        addActions()
     }
     
     private func setupStyles() {
-        setImage(UIImage(named: "heart"), for: .normal)
-        setImage(UIImage(named: "heartFilled"), for: .selected)
+        setImage(#imageLiteral(resourceName: "heart").withRenderingMode(.alwaysTemplate), for: .normal)
         imageView?.contentMode = .scaleAspectFit
         withHeight(24)
-    }
-    
-    private func addActions() {
-        addTarget(self, action: #selector(toggle(_:)), for: .touchUpInside)
-    }
-    
-    @objc private func toggle(_ sender: LikeButton) {
-        sender.isSelected = !sender.isSelected
     }
     
     required init?(coder aDecoder: NSCoder) {

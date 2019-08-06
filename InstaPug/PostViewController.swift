@@ -20,12 +20,12 @@ class PostViewController: UIViewController {
         setupCollectionView()
         fetchPosts()
     }
-
-    // MARK: Loading Data
     
     func fetchPosts() {
         let request = APIRequest(method: .get, path: "bomb")
-        request.queryItems = [URLQueryItem(name: "count", value: "50")]
+        let batchSize = 50
+        
+        request.queryItems = [URLQueryItem(name: "count", value: String(batchSize))]
         
         api.perform(request) { (result) in
             switch result {
@@ -49,6 +49,15 @@ class PostViewController: UIViewController {
         }
     }
     
+    func handleFavorite(for cell: PostViewCell) {
+        if let indexPath = self.collectionView.indexPath(for: cell) {
+            var post = self.posts[indexPath.item]
+            
+            post.isFavorited = !post.isFavorited
+            cell.post = post
+        }
+    }
+    
     // MARK : UI
     
     private func setupCollectionView() {
@@ -62,6 +71,3 @@ class PostViewController: UIViewController {
         [view, collectionView].forEach { $0?.backgroundColor = .white }
     }
 }
-
-// pull all API requests out of VC
-// new file AppAPIClient
