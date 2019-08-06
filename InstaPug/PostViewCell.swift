@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol PostViewCellDelegate {
+protocol PostViewCellDelegate: class {
     func favoriteButtonTapped(for cell: PostViewCell)
 }
 
 class PostViewCell: UICollectionViewCell {
     
-    public var delegate: PostViewCellDelegate?
+    public weak var delegate: PostViewCellDelegate?
 
     public func configure(for post: Post) {
         loadImage(for: post)
