@@ -14,20 +14,37 @@ class PostViewController: UIViewController {
 
     let postAPI = PostAPI()
     let collectionView = PostCollectionView()
+    
+    private let refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupCollectionView()
         setupNavigationBar()
+        setupPullToRefresh()
         fetchPosts()
     }
     
     public func fetchPosts() {
         postAPI.fetch() { [weak self] posts in
             self?.posts += posts
-            DispatchQueue.main.async { self?.collectionView.reloadData() }
+            DispatchQueue.main.async {
+                self?.collectionView.reloadData()
+                self?.refreshControl.endRefreshing()
+            }
         }
+    }
+    
+    // MARK: Pull to Refresh
+    
+    private func setupPullToRefresh() {
+        collectionView.addSubview(refreshControl)
+        refreshControl.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
+    }
+    
+    @objc private func pullToRefresh() {
+        fetchPosts()
     }
     
     // MARK : UI
