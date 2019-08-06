@@ -18,6 +18,7 @@ class PostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+        setupNavigationBar()
         fetchPosts()
     }
     
@@ -75,5 +76,9 @@ class PostViewController: UIViewController {
                               trailing: view.safeAreaLayoutGuide.trailingAnchor)
         
         [view, collectionView].forEach { $0?.backgroundColor = .white }
+    }
+    
+    private func setupNavigationBar() {
+        title = "Pugs"
     }
 }
