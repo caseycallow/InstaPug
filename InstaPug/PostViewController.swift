@@ -69,7 +69,11 @@ class PostViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.prefetchDataSource = self
         
-        collectionView.fillSuperviewSafeAreaLayoutGuide()
+        collectionView.anchor(top: view.safeAreaLayoutGuide.topAnchor,
+                              leading: view.safeAreaLayoutGuide.leadingAnchor,
+                              bottom: view.bottomAnchor,
+                              trailing: view.safeAreaLayoutGuide.trailingAnchor)
+        
         [view, collectionView].forEach { $0?.backgroundColor = .white }
     }
 }
