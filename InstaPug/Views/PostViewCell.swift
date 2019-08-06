@@ -15,7 +15,6 @@ class PostViewCell: UICollectionViewCell {
     public var post: Post? {
         didSet {
             if let post = post {
-                print("post from Cell: \(post)")
                 loadImage(for: post)
                 updateFavorites(for: post)
             }
@@ -45,10 +44,6 @@ class PostViewCell: UICollectionViewCell {
         
         favoriteButton.tintColor = favorited ? UIColor.red : UIColor.gray
         favoriteLabel.text = formattedString(for: totalFavorites)
-
-        print("updateFavorites called, totalFavs: \(totalFavorites)")
-        
-        favoriteButton.addTarget(self, action: #selector(favoriteButtonTapped), for: .touchUpInside)
     }
     
     private func formattedString(for favorites: Int) -> String {
@@ -57,6 +52,10 @@ class PostViewCell: UICollectionViewCell {
         }
         
         return "\(String(favorites)) like\(singleFavorite ? "" : "s")"
+    }
+    
+    private func addActions() {
+        favoriteButton.addTarget(self, action: #selector(favoriteButtonTapped), for: .touchUpInside)
     }
     
     @objc private func favoriteButtonTapped(_ sender: FavoriteButton) {
@@ -80,6 +79,7 @@ class PostViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         layoutComponents()
+        addActions()
     }
     
     required init?(coder aDecoder: NSCoder) {

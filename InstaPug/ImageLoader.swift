@@ -13,16 +13,15 @@ class ImageLoader {
     
     public func loadImage(from url: URL, for cell: PostViewCell) {
         let imageView = cell.imageView
-        let processor = DownsamplingImageProcessor(size: imageView.frame.size)
         
         imageView.kf.indicatorType = .activity
         imageView.kf.setImage(
             with: url,
             options: [
-                .processor(processor),
                 .scaleFactor(UIScreen.main.scale),
                 .transition(.fade(1)),
                 .cacheOriginalImage
-        ])
+            ]
+        )
     }
 }

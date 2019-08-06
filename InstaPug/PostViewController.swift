@@ -55,6 +55,8 @@ class PostViewController: UIViewController {
             
             post.isFavorited = !post.isFavorited
             cell.post = post
+            
+            print("handFav called")
         }
     }
     
