@@ -17,7 +17,7 @@ class FavoriteLabel: UILabel {
     
     private func setupStyles() {
         textColor = .black
-        font = UIFont(name: "Lato-Bold", size: 14)
+        font = UIFont.systemFont(ofSize: 17)
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -17,6 +17,7 @@
 		CE3A21AE22F3ED1800ADC35C /* Space.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3A21AC22F3ED1800ADC35C /* Space.swift */; };
 		CE3A21AF22F3ED1800ADC35C /* AnchoredContraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3A21AD22F3ED1800ADC35C /* AnchoredContraints.swift */; };
 		CE3A21B122F3EDC100ADC35C /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3A21B022F3EDC100ADC35C /* UIView+Layout.swift */; };
+		CE3A91AE22FA249800B01B8A /* RefreshControlLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3A91AD22FA249800B01B8A /* RefreshControlLabel.swift */; };
 		CE474AF022F892F900D02389 /* UICollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE474AEF22F892F900D02389 /* UICollectionReusableView.swift */; };
 		CE474AF222F89EC600D02389 /* PostViewController+FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE474AF122F89EC600D02389 /* PostViewController+FlowLayout.swift */; };
 		CE474AF422F89F1100D02389 /* PostViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE474AF322F89F1100D02389 /* PostViewController+DataSource.swift */; };
@@ -51,6 +52,7 @@
 		CE3A21AC22F3ED1800ADC35C /* Space.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Space.swift; sourceTree = "<group>"; };
 		CE3A21AD22F3ED1800ADC35C /* AnchoredContraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchoredContraints.swift; sourceTree = "<group>"; };
 		CE3A21B022F3EDC100ADC35C /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
+		CE3A91AD22FA249800B01B8A /* RefreshControlLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshControlLabel.swift; sourceTree = "<group>"; };
 		CE474AEF22F892F900D02389 /* UICollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionReusableView.swift; sourceTree = "<group>"; };
 		CE474AF122F89EC600D02389 /* PostViewController+FlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PostViewController+FlowLayout.swift"; sourceTree = "<group>"; };
 		CE474AF322F89F1100D02389 /* PostViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PostViewController+DataSource.swift"; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			children = (
 				CEA410AA22F4F4B6005EB4A0 /* FavoriteButton.swift */,
 				CEA410AC22F4FD16005EB4A0 /* FavoriteLabel.swift */,
+				CE3A91AD22FA249800B01B8A /* RefreshControlLabel.swift */,
 				CEA410AE22F8919F005EB4A0 /* PostCollectionView.swift */,
 			);
 			path = Views;
@@ -316,6 +319,7 @@
 				CEB9966F22F9F9BD00D1BB95 /* PostAPI.swift in Sources */,
 				CEA410A522F4BB4B005EB4A0 /* UIView+Stacking.swift in Sources */,
 				CE3A21A822F3DE9300ADC35C /* Post.swift in Sources */,
+				CE3A91AE22FA249800B01B8A /* RefreshControlLabel.swift in Sources */,
 				CE474AF222F89EC600D02389 /* PostViewController+FlowLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

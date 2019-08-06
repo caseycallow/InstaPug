@@ -8,11 +8,15 @@
 
 import Foundation
 
+enum PostAPIError: Error {
+    case failedToDecode
+}
+
 class PostAPI {
 
     fileprivate var api = APIClient()
     
-    public func fetch(completion: @escaping ([Post]) -> ()) {
+    public func fetch(completion: @escaping ([Post]?, Error?) -> ()) {
         
         var fetchedPosts = [Post]()
         let request = APIRequest(method: .get, path: "bomb")
@@ -30,13 +34,13 @@ class PostAPI {
                         fetchedPosts.append(post)
                     }
                 } else {
-                    print("Failed to decode response")
+                    completion(nil, PostAPIError.failedToDecode)
                 }
                 
-                completion(fetchedPosts)
+                completion(fetchedPosts, nil)
                 
             case .failure(let error):
-                print("Error perform network request: \(error)")
+                completion(nil, error)
             }
         }
     }
