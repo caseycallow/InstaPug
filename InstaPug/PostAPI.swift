@@ -28,7 +28,8 @@ class PostAPI {
             switch result {
             case .success(let response):
                 guard let response = try? response.decode(to: Posts.self) else {
-                    return completion(nil, PostAPIError.failedToDecode)
+                    completion(nil, PostAPIError.failedToDecode)
+                    return
                 }
                 
                 for url in response.body.results {
