@@ -41,7 +41,9 @@ struct APIResponse<Body> {
 }
 
 extension APIResponse where Body == Data? {
+    
     func decode<BodyType: Decodable>(to type: BodyType.Type) throws -> APIResponse<BodyType> {
+        
         guard let data = body else {
             throw APIError.decodingFailure
         }
@@ -96,6 +98,7 @@ struct APIClient {
             
             completion(.success(APIResponse<Data?>(statusCode: httpResponse.statusCode, body: data)))
         }
+        
         task.resume()
     }
 }

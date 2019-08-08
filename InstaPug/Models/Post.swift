@@ -11,9 +11,7 @@ import UIKit
 class Post {
     public let imageURL: URL
     public var isFavorited: Bool = false
-    public var totalFavorites: Int {
-        return generateRandomNumberFrom(imageURL)
-    }
+    public var totalFavorites: Int { return generateRandomNumberFrom(imageURL) }
     
     init(imageURL: URL) {
         self.imageURL = imageURL

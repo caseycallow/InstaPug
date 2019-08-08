@@ -9,6 +9,11 @@
 import UIKit
 import Kingfisher
 
+// Kingfisher dependency used here to build in lazy loading
+// with animation and caching. It also has native support
+// for prefetching to further boost performance, which is
+// implemented in `PostViewController+Prefetching`
+
 class ImageLoader {
     
     public func loadImage(from url: URL, for cell: PostViewCell) {

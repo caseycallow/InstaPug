@@ -13,7 +13,6 @@ extension PostViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
         let offset = 15
-        
         let offsetReached = indexPath.item == posts.count - offset
         let endOfListReached = indexPath.item == posts.count - 1
         
