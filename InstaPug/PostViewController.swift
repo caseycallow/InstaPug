@@ -30,7 +30,9 @@ class PostViewController: UIViewController {
     
     public func fetchPosts() {
         postAPI.fetch() { [weak self] (fetchedPosts, error) in
-            fetchedPosts?.forEach { self?.posts.append($0) }
+            guard let self = self else { return }
+            
+            fetchedPosts?.forEach { self.posts.append($0) }
             
             DispatchQueue.main.async {
                 self?.updateLoadingUI(error)
