@@ -27,14 +27,13 @@ class PostAPI {
         api.perform(request) { (result) in
             switch result {
             case .success(let response):
-                if let response = try? response.decode(to: Posts.self) {
-                    let posts = response.body
-                    for url in posts.results {
-                        let post = Post(imageURL: url)
-                        fetchedPosts.append(post)
-                    }
-                } else {
-                    completion(nil, PostAPIError.failedToDecode)
+                guard let response = try? response.decode(to: Posts.self) else {
+                    return completion(nil, PostAPIError.failedToDecode)
+                }
+                
+                for url in response.body.results {
+                    let post = Post(imageURL: url)
+                    fetchedPosts.append(post)
                 }
                 
                 completion(fetchedPosts, nil)
