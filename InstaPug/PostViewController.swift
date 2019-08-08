@@ -35,7 +35,7 @@ class PostViewController: UIViewController {
             fetchedPosts?.forEach { self.posts.append($0) }
             
             DispatchQueue.main.async {
-                self?.updateLoadingUI(error)
+                self.updateLoadingUI(error)
             }
         }
     }
