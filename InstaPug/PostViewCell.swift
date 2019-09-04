@@ -34,11 +34,11 @@ class PostViewCell: UICollectionViewCell {
     
     // MARK: Private Methods
     
-    public func loadImage(for post: Post) {
+    private func loadImage(for post: Post) {
         ImageLoader().loadImage(from: post.imageURL, for: self)
     }
     
-    public func updateFavorites(for post: Post) {
+    private func updateFavorites(for post: Post) {
         let favorited = post.isFavorited
         let totalFavorites = favorited ? post.totalFavorites + 1 : post.totalFavorites
         
